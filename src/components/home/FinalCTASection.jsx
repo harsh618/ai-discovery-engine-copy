@@ -8,12 +8,12 @@ export default function FinalCTASection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-slate-900 to-indigo-950 relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-gradient-to-b from-indigo-600 to-purple-700 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -28,16 +28,16 @@ export default function FinalCTASection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm mb-8"
           >
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span className="text-white/80 text-sm">Limited Time: 14-Day Free Trial</span>
+            <Sparkles className="w-4 h-4 text-amber-300" />
+            <span className="text-white text-sm">Limited Time: 14-Day Free Trial</span>
           </motion.div>
 
           {/* Headline */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Get Discovered by{' '}
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="text-amber-300">
               1.5 Billion
             </span>{' '}
             AI Users?
@@ -57,7 +57,7 @@ export default function FinalCTASection() {
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-400 hover:via-purple-400 hover:to-pink-400 text-white px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-indigo-500/30 transition-all duration-300 hover:shadow-indigo-500/40 hover:-translate-y-1 group"
+              className="bg-white hover:bg-slate-50 text-indigo-700 px-12 py-8 text-xl rounded-2xl shadow-2xl shadow-black/20 transition-all duration-300 hover:shadow-black/30 hover:-translate-y-1 group font-semibold"
             >
               Get Your Free AI Visibility Report
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -69,18 +69,18 @@ export default function FinalCTASection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-6 text-white/60"
+            className="flex flex-wrap justify-center gap-6 text-white/90"
           >
             <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-green-400" />
+              <Clock className="w-4 h-4 text-amber-300" />
               Setup in 5 minutes
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-400" />
+              <CheckCircle2 className="w-4 h-4 text-amber-300" />
               No technical skills needed
             </span>
             <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-green-400" />
+              <Zap className="w-4 h-4 text-amber-300" />
               Cancel anytime
             </span>
           </motion.div>

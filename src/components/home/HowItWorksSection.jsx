@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, ReferenceDot } from 'recharts';
 import { Button } from "@/components/ui/button";
 import { Search, Wrench, Settings, TrendingUp, Crown, Zap, BarChart3, Target, DollarSign, CheckCircle2 } from 'lucide-react';
 
@@ -68,12 +68,33 @@ const graphData = Array.from({ length: 13 }, (_, i) => {
     withOptimization = 180 + (week - 11) * 10;
   }
   
+  // Add milestone markers
+  const milestone = milestones.find(m => Math.round(m.week) === week);
+  
   return {
     week: `W${week}`,
+    weekNum: week,
     withOptimization: Math.round(withOptimization),
-    withoutOptimization: 8
+    withoutOptimization: 8,
+    milestone: milestone ? milestone.stage : null,
+    milestoneVisibility: milestone ? milestone.visibility : null
   };
 });
+
+const CustomDot = (props) => {
+  const { cx, cy, payload } = props;
+  if (!payload.milestone) return null;
+  
+  const milestone = milestones.find(m => m.stage === payload.milestone);
+  if (!milestone) return null;
+  
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={12} fill={milestone.color} opacity={0.2} />
+      <circle cx={cx} cy={cy} r={8} fill={milestone.color} stroke="white" strokeWidth={2} />
+    </g>
+  );
+};
 
 const stats = [
   { icon: Zap, label: 'Time to First Citation', value: '18 days', sublabel: 'average' },
@@ -189,9 +210,30 @@ export default function HowItWorksSection() {
                   name="With Our Platform"
                   stroke="url(#colorOptimized)" 
                   strokeWidth={4}
-                  dot={false}
-                  activeDot={{ r: 8, fill: '#6366F1' }}
+                  dot={<CustomDot />}
+                  activeDot={{ r: 10, fill: '#6366F1', stroke: 'white', strokeWidth: 2 }}
                 />
+                
+                {/* Milestone Labels */}
+                {graphData.filter(d => d.milestone).map((data, index) => {
+                  const milestone = milestones.find(m => m.stage === data.milestone);
+                  return (
+                    <ReferenceDot
+                      key={data.milestone}
+                      x={data.week}
+                      y={data.withOptimization}
+                      r={0}
+                      label={{
+                        value: data.milestone,
+                        position: index % 2 === 0 ? 'top' : 'bottom',
+                        fill: milestone?.color || '#6366F1',
+                        fontSize: 11,
+                        fontWeight: 600,
+                        offset: 20
+                      }}
+                    />
+                  );
+                })}
               </LineChart>
             </ResponsiveContainer>
 

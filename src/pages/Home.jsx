@@ -1,0 +1,26 @@
+import React from 'react';
+import HeroSection from '@/components/home/HeroSection';
+import GrowthGraphSection from '@/components/home/GrowthGraphSection';
+import FeaturesSection from '@/components/home/FeaturesSection';
+import HowItWorksSection from '@/components/home/HowItWorksSection';
+import PricingSection from '@/components/home/PricingSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
+import FAQSection from '@/components/home/FAQSection';
+import FinalCTASection from '@/components/home/FinalCTASection';
+import Footer from '@/components/home/Footer';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white">
+      <HeroSection />
+      <GrowthGraphSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <FinalCTASection />
+      <Footer />
+    </div>
+  );
+}

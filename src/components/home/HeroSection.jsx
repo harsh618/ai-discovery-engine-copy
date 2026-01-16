@@ -119,7 +119,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <motion.div
@@ -165,14 +165,13 @@ export default function HeroSection() {
                 Start Free 7-Day Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-slate-300 bg-white text-slate-700 hover:bg-slate-50 px-8 py-6 text-lg rounded-xl transition-all duration-300 shadow-sm"
+              <button 
+                onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 px-8 py-4 text-lg rounded-xl transition-all duration-300 shadow-sm font-medium"
               >
                 <Play className="mr-2 w-5 h-5" />
                 See How It Works
-              </Button>
+              </button>
             </div>
 
             {/* Trust Indicators */}

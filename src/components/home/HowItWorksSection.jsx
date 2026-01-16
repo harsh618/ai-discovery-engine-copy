@@ -127,7 +127,7 @@ export default function HowItWorksSection() {
   const [hoveredMilestone, setHoveredMilestone] = useState(null);
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+    <section id="how-it-works" ref={ref} className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.08),transparent_50%)]" />
       

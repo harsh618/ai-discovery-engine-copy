@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.03),transparent_50%)]" />
 

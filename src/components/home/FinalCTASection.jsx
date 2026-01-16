@@ -31,7 +31,7 @@ export default function FinalCTASection() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm mb-8"
           >
             <Sparkles className="w-4 h-4 text-amber-300" />
-            <span className="text-white text-sm">Limited Time: 14-Day Free Trial</span>
+            <span className="text-white text-sm">Limited Time: 7 Day Free Trial</span>
           </motion.div>
 
           {/* Headline */}
